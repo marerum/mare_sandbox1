@@ -52,19 +52,8 @@ def get_secret_or_env(name: str) -> str:
         try:
             value = st.secrets[name]
         except Exception:
-            # 一時的なデモ用の値（実際のAPIキーに置き換えてください）
-            demo_values = {
-                "SUPABASE_URL": "https://your-project.supabase.co",
-                "SUPABASE_ANON_KEY": "your-anon-key-here",
-                "OPENAI_API_KEY": "sk-your-openai-key-here",
-                "STABILITY_API_KEY": "sk-your-stability-key-here"
-            }
-            if name in demo_values:
-                st.warning(f"⚠️ {name} はデモ値を使用しています。実際のキーを設定してください。")
-                return demo_values[name]
-            else:
-                st.error(f"{name} が見つかりません。")
-                st.stop()
+            st.error(f"{name} が見つかりません。")
+            st.stop()
     return value
 
 #SUPABASEを使うための情報
