@@ -1,3 +1,5 @@
 libzbar0
 libzbar-dev
 zbar-tools
+pkg-config
+libglib2.0-dev
